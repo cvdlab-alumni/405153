@@ -48,7 +48,7 @@ COLOR([0.545,0.27,0.05])(braccioli2);
 var telaio = STRUCT([gambe,telaio2,telaio1,schienale1,schienale2,
 	strutturaSedile2,strutturaSedile1,sedileLegno1,sedileLegno2,braccioli1,braccioli2,schienalegrid1,schienalegrid20,
 	schienalegrid21,schienalegrid22,schienalegrid23]);
-var sedia = T([0,1,2])([27,1,0.2])(telaio)
-DRAW(sedia);
+
+DRAW(telaio);
 
 
