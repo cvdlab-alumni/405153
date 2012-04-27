@@ -13,5 +13,13 @@ var tetto = T([2])([2])(t);
 
 COLOR([1,0,0,0.2])(tetto);
 
-DRAW(muri3d);
-DRAW(tetto);
+//DRAW(muri3d);
+//DRAW(tetto);
+
+
+var manici = [[1,0],[1,1],[1,0],[1,1]];
+var interval = INTERVAL(1)(20)
+var curva = CUBIC_HERMITE(S0)(manici);
+var out = MAP(curva)(interval);
+
+DRAW(out);
