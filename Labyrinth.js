@@ -26,7 +26,7 @@ var out = MAP(curva)(interval);
 
 
 
-var manici = [[0,0],[3,1],[1,2],[2,3],[3,2]];
+var manici = [[0,0],[1,3],[3,2],[3,0],[5,-1],[6,1]];
 var interval = INTERVALS(1)(20);
 var curva = BEZIER(S0)(manici);
 var out = MAP(curva)(interval);
