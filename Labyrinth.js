@@ -9,17 +9,26 @@ var muri3d = EXTRUDE([2])(muri);
 COLOR([1,2,3,0.2])(muri3d);
 
 var t = CUBOID([9,7,0.3]);
-var tetto = T([2])([2])(t);
+var tetto1 = T([2])([2])(t);
 
-COLOR([1,0,0,0.2])(tetto);
+var tetto COLOR([1,0,0,0.2])(tetto1);
 
 //DRAW(muri3d);
 //DRAW(tetto);
 
 
 var manici = [[1,0],[1,1],[1,0],[1,1]];
-var interval = INTERVAL(1)(20)
+var interval = INTERVALS(1)(20)
 var curva = CUBIC_HERMITE(S0)(manici);
+var out = MAP(curva)(interval);
+
+//DRAW(out);
+
+
+
+var manici = [[0,0],[3,1],[1,2],[2,3],[3,2]];
+var interval = INTERVALS(1)(20);
+var curva = BEZIER(S0)(manici);
 var out = MAP(curva)(interval);
 
 DRAW(out);
