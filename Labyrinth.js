@@ -17,18 +17,6 @@ var tetto COLOR([1,0,0,0.2])(tetto1);
 //DRAW(tetto);
 
 
-var manici = [[1,0],[1,1],[1,0],[1,1]];
-var interval = INTERVALS(1)(20)
-var curva = CUBIC_HERMITE(S0)(manici);
-var out = MAP(curva)(interval);
-
-//DRAW(out);
 
 
 
-var manici = [[0,0],[1,3],[3,2],[3,0],[5,-1],[6,1]];
-var interval = INTERVALS(1)(20);
-var curva = BEZIER(S0)(manici);
-var out = MAP(curva)(interval);
-
-DRAW(out);
