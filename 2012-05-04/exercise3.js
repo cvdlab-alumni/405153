@@ -54,7 +54,7 @@ var tt = MAP(BEZIER(S1)([t4, t5,t6,t4]))(dd);
 var tt1 = R([1,2])(PI/2)(tt);
 var tt2 = S([1])([-1])(tt1);
 
-var timone2 = T([1,2])([7.5,2])(tt2);
+var timone2 = T([1,2])([7.5,2.1])(tt2);
 
 
 
