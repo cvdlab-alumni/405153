@@ -215,27 +215,45 @@ var carrellop1 = T([0,1,2])([0.6,0.5,-1])(ccp);
 var carrellop2 = T([0,1,2])([-0.6,0.5,-1])(ccp);
 
 
-var ruota1 = BEZIER(S0)([[-1,0,0],[-1,1,0],[0,1,0]]);
 
-var ruota2 = BEZIER(S0)([[0,1,0],[1,1,0],[1,0,0]]);
+var ruota1 = BEZIER(S0)([[-1,0,-0.1],[-1,1,-0.1],[0,1,-0.10]]);
+
+var ruota2 = BEZIER(S0)([[0,1,-0.1],[1,1,-0.1],[1,0,-0.1]]);
 
 
-var ruota3 = BEZIER(S0)([[1,0,0],[1,-1,0],[0,-1,0]]);
-var ruota4 = BEZIER(S0)([[0,-1,0],[-1,-1,0],[-1,0,0]]);
+var ruota3 = BEZIER(S0)([[1,0,-0.1],[1,-1,-0.1],[0,-1,-0.1]]);
+var ruota4 = BEZIER(S0)([[0,-1,-0.1],[-1,-1,-0.1],[-1,0,-0.1]]);
 
-var x = BEZIER(S0)([[0,0,0],[1,0,0]]);
-var y = BEZIER(S0)([[0,0,0],[0,1,0]]);
-var z = BEZIER(S0)([[0,0,0],[-1,0,0]]);
-var w = BEZIER(S0)([[0,0,0],[0,-1,0]]);
+var dd = PROD1x1([INTERVALS(1)(14),INTERVALS(1)(20)]);
+var ruota5 = BEZIER(S0)([[-1,0,0.1],[-1,1,0.1],[0,1,0.10]]);
+
+var ruota6 = BEZIER(S0)([[0,1,0.1],[1,1,0.1],[1,0,0.1]]);
+
+
+var ruota7 = BEZIER(S0)([[1,0,0.1],[1,-1,0.1],[0,-1,0.1]]);
+var ruota8 = BEZIER(S0)([[0,-1,0.1],[-1,-1,0.1],[-1,0,0.1]]);
+
+var x = BEZIER(S0)([[0,0,-0.1],[1,0,-0.1]]);
+var y = BEZIER(S0)([[0,0,-0.1],[0,1,-0.1]]);
+var z = BEZIER(S0)([[0,0,-0.1],[-1,0,-0.1]]);
+var w = BEZIER(S0)([[0,0,-0.1],[0,-1,-0.1]]);
+
 
 var curvac1 = MAP(BEZIER(S1)([ruota1,y]))(dd);
 var curvac2 = MAP(BEZIER(S1)([ruota2,z]))(dd);
 var curvac3 = MAP(BEZIER(S1)([ruota3,w]))(dd);
 var curvac4 = MAP(BEZIER(S1)([ruota4,x]))(dd);
 
-var ruota = STRUCT([curvac1,curvac2,curvac3,curvac4]);
-//DRAW(ruota);
+var rrr1 = STRUCT([curvac1,curvac2,curvac3,curvac4]);
+var rrr2 = S([2])([-1])(rrr1);
 
+var rrr3 = MAP(BEZIER(S1)([ruota1,ruota5]))(dd);
+var rrr4 = MAP(BEZIER(S1)([ruota2,ruota6]))(dd);
+var rrr5 = MAP(BEZIER(S1)([ruota3,ruota7]))(dd);
+var rrr6 = MAP(BEZIER(S1)([ruota4,ruota8]))(dd);
+
+
+var ruota = STRUCT([rrr1,rrr2,rrr3,rrr4,rrr5,rrr6]);
 
 
 
