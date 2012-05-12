@@ -24,6 +24,52 @@ r=6 t = 9.9411252
 
 */
 
+
+var CShift = function(r,h1,h2,sx,color){
+var c = color;
+
+var st1 = H([[0,r,0],[r,0,0],[1.6568*r,0,0],[0,-1.6568*r,0]]);
+var st2 = H([[r,0,0],[0,-r,0],[0,-1.6568*r,0],[-1.6568*r,0,0]]);
+var st3 = H([[0,-r,0],[-r,0,0],[-1.6568*r,0,0],[0,1.6568*r,0]]);
+var st4 = H([[-r,0,0],[0,r,0],[0,1.6568*r,0],[1.6568*r,0,0]]);
+
+var st5 = H([[0,r,h1],[r,0,h1],[1.6568*r,0,0],[0,-1.6568*r,0]]);
+var st6 = H([[r,0,h1],[0,-r,h1],[0,-1.6568*r,0],[-1.6568*r,0,0]]);
+var st7 = H([[0,-r,h1],[-r,0,h1],[-1.6568*r,0,0],[0,1.6568*r,0]]);
+var st8 = H([[-r,0,h1],[0,r,h1],[0,1.6568*r,0],[1.6568*r,0,0]]);
+
+var st9 = H([[0+sx,r,h2],[r+sx,0,h2],[1.6568*r,0,0],[0,-1.6568*r,0]]);
+var st10= H([[r+sx,0,h2],[0+sx,-r,h2],[0,-1.6568*r,0],[-1.6568*r,0,0]]);
+var st11= H([[0+sx,-r,h2],[-r+sx,0,h2],[-1.6568*r,0,0],[0,1.6568*r,0]]);
+var st12= H([[-r+sx,0,h2],[0+sx,r,h2],[0,1.6568*r,0],[1.6568*r,0,0]]);
+
+
+var punto = B([[0,0,0]]);
+var punto1 = B([[sx,0,h2]]);
+
+
+var sts1 = COLOR(c)(MAP(BEZIER(S1)([st1,punto]))(dd));
+var sts2 = COLOR(c)(MAP(BEZIER(S1)([st2,punto]))(dd));
+var sts3 = COLOR(c)(MAP(BEZIER(S1)([st3,punto]))(dd));
+var sts4 = COLOR(c)(MAP(BEZIER(S1)([st4,punto]))(dd));
+
+var sts5 = COLOR(c)(MAP(BEZIER(S1)([st9 ,punto1]))(dd));
+var sts6 = COLOR(c)(MAP(BEZIER(S1)([st10,punto1]))(dd));
+var sts7 = COLOR(c)(MAP(BEZIER(S1)([st11,punto1]))(dd));
+var sts8 = COLOR(c)(MAP(BEZIER(S1)([st12,punto1]))(dd));
+
+
+
+
+var stoppino1 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st1,st5,st9]))(dd));
+var stoppino2 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st2,st6,st10]))(dd));
+var stoppino3 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st3,st7,st11]))(dd));
+var stoppino4 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st4,st8,st12]))(dd));
+
+return STRUCT([stoppino1,stoppino2,stoppino3,stoppino4,sts1,sts2,sts3,sts4,sts5,sts6,sts7,sts8]);
+
+}
+
 var C = function(nn,hh,dd,color){
 var n = nn;
 var h = hh;
@@ -452,45 +498,7 @@ var manicossx = S([0])([-1])(manicosdx);
 var manicoSopra = STRUCT([manicossx,manicosdx]);
 
 
-var st1 = H([[0,1,0],[1,0,0],[1.6568,0,0],[0,-1.6568,0]]);
-var st2 = H([[1,0,0],[0,-1,0],[0,-1.6568,0],[-1.6568,0,0]]);
-var st3 = H([[0,-1,0],[-1,0,0],[-1.6568,0,0],[0,1.6568,0]]);
-var st4 = H([[-1,0,0],[0,1,0],[0,1.6568,0],[1.6568,0,0]]);
-
-var st5 = H([[0,1,1],[1,0,1],[1.6568,0,0],[0,-1.6568,0]]);
-var st6 = H([[1,0,1],[0,-1,1],[0,-1.6568,0],[-1.6568,0,0]]);
-var st7 = H([[0,-1,1],[-1,0,1],[-1.6568,0,0],[0,1.6568,0]]);
-var st8 = H([[-1,0,1],[0,1,1],[0,1.6568,0],[1.6568,0,0]]);
-
-var st9 = H([[1,1,2],[2,0,2],[1.6568,0,0],[0,-1.6568,0]]);
-var st10= H([[2,0,2],[1,-1,2],[0,-1.6568,0],[-1.6568,0,0]]);
-var st11= H([[1,-1,2],[0,0,2],[-1.6568,0,0],[0,1.6568,0]]);
-var st12= H([[0,0,2],[1,1,2],[0,1.6568,0],[1.6568,0,0]]);
-
-
-var punto = B([[0,0,0]]);
-var punto1 = B([[1,0,2]]);
-
-
-var sts1 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st1,punto]))(dd));
-var sts2 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st2,punto]))(dd));
-var sts3 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st3,punto]))(dd));
-var sts4 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st4,punto]))(dd));
-
-var sts5 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st9 ,punto1]))(dd));
-var sts6 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st10,punto1]))(dd));
-var sts7 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st11,punto1]))(dd));
-var sts8 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st12,punto1]))(dd));
-
-
-
-
-var stoppino1 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st1,st5,st9]))(dd));
-var stoppino2 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st2,st6,st10]))(dd));
-var stoppino3 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st3,st7,st11]))(dd));
-var stoppino4 = COLOR([0,0,0,1])(MAP(BEZIER(S1)([st4,st8,st12]))(dd));
-
-var stoppino = STRUCT([stoppino1,stoppino2,stoppino3,stoppino4,sts1,sts2,sts3,sts4,sts5,sts6,sts7,sts8]);
+var stoppino = CShift(1,1,2,1,[0,0,0,1]);
 stoppino = T([2])([5])(stoppino);
 stoppino = S([0,1,2])([1/5,1/5,0.9])(stoppino);
 
@@ -506,12 +514,50 @@ gas2 = T([1,2])([5.5,2])(gas2);
 var regolatoreGas = STRUCT([gas1,gas2]);
 
 
-
-
 var lanterna = STRUCT([base,oliera,cupola,baseVetro,vetro,sopraVetro,maniciLaterali,manicoSopra,stoppino,regolatoreGas]);
 
-DRAW(lanterna);
 
+var x = 0.05;
+var sp1 = BEZIER(S0)([[4,0,0+x],[-1+x,0,0+x],[-1.25+x,0,0+x],[-1.25+x,0,0.25+x],[-1+x,0,0.5+x],[4,0,10-x]]);
+var sp2 = BEZIER(S0)([[4,0-x,0],[-1,0-x,0],[-1.25,0-x,0],[-1.25,0-x,0.25],[-1,0-x,0.5],[4,0-x,10]]);
+var sp3 = BEZIER(S0)([[4,0,0-x],[-1-x,0,0-x],[-1.25-x,0,0-x],[-1.25-x,0,0.25-x],[-1-x,0,0.5-x],[4,0,10+x]]);
+var sp4 = BEZIER(S0)([[4,0+x,0],[-1,0+x,0],[-1.25,0+x,0],[-1.25,0+x,0.25],[-1,0+x,0.5],[4,0+x,10]]);
+
+
+var supporto1 = COLOR([0.6,0.6,0.6,1])(MAP(BEZIER(S1)([sp1,sp2]))(dd));
+var supporto2 = COLOR([0.6,0.6,0.6,1])(MAP(BEZIER(S1)([sp2,sp3]))(dd));
+var supporto3 = COLOR([0.6,0.6,0.6,1])(MAP(BEZIER(S1)([sp3,sp4]))(dd));
+var supporto4 = COLOR([0.6,0.6,0.6,1])(MAP(BEZIER(S1)([sp4,sp1]))(dd));
+
+var spdx = STRUCT([supporto1,supporto2,supporto3,supporto4]);
+
+spdx = T([0])([-3.992])(spdx);
+spdx = R([1,2])(PI/2)(spdx);
+var spsx = S([0])([-1])(spdx);
+
+var supportobase = STRUCT([spdx,spsx]);
+supportobase = S([0,1,2])([1.5,1.5,1.5])(supportobase);
+
+
+var asta = C(0.05,0,30,[0.6,0.6,0.6,1]);
+asta = T([1])([-15])(asta);
+
+var astasopra = CShift(0.05,9,12,2,[0.6,0.6,0.6,1]);
+astasopra = R([0,1])(PI/2)(astasopra);
+astasopra = R([1,2])(PI/2)(astasopra);
+astasopra = T([1,2])([15,30])(astasopra);
+astasopra = R([0,1])(PI)(astasopra);
+
+lanterna = T([1,2])([-5,7.8])(lanterna);
+
+var supporto = STRUCT(supportobase,asta,astasopra);
+
+
+
+
+var model = STRUCT([lanterna,supporto]);
+
+DRAW(model);
 
 
 
