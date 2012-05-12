@@ -550,7 +550,7 @@ astasopra = R([0,1])(PI)(astasopra);
 
 lanterna = T([1,2])([-5,7.8])(lanterna);
 
-var supporto = STRUCT(supportobase,asta,astasopra);
+var supporto = STRUCT([supportobase,asta,astasopra]);
 
 
 
