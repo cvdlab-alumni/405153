@@ -508,9 +508,9 @@ var regolatoreGas = STRUCT([gas1,gas2]);
 
 
 
-var lanterna = STRUCT([base,oliera,cupola,baseVetro,vetro,sopraVetro,maniciLaterali,manicoSopra,stoppino,regolatoreGas]);
+var scmodel = STRUCT([base,oliera,cupola,baseVetro,vetro,sopraVetro,maniciLaterali,manicoSopra,stoppino,regolatoreGas]);
 
-DRAW(lanterna);
+DRAW(scmodel);
 
 
 
