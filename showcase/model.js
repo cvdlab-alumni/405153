@@ -4,8 +4,8 @@
 
 
 
-var dd = PROD1x1([INTERVALS(1)(20),INTERVALS(1)(20)]);
-var dom = INTERVALS(1)(20);
+var dd = PROD1x1([INTERVALS(1)(10),INTERVALS(1)(10)]);
+var dom = INTERVALS(1)(10);
 
 var H = function(points){
 	return CUBIC_HERMITE(S0)(points);
