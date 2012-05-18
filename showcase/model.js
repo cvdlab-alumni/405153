@@ -510,7 +510,6 @@ var regolatoreGas = STRUCT([gas1,gas2]);
 
 var scmodel = STRUCT([base,oliera,cupola,baseVetro,vetro,sopraVetro,maniciLaterali,manicoSopra,stoppino,regolatoreGas]);
 
-DRAW(scmodel);
 
 
 
