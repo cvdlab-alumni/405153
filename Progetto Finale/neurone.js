@@ -706,10 +706,69 @@ var lisosoma = function(){
 var lisosomi = function(){
 	var liso1 = lisosoma();
 	liso1 = R([0,2])(-PI/6)(liso1);
-	liso1 = T([0,2])([-4.5,6.5])(liso1);
+	liso1 = T([0,2])([-5.5,6.5])(liso1);
+
+	var liso2 = lisosoma();
+	liso2 = R([0,2])(-PI/3)(liso2);
+	liso2 = T([0,2])([1,8])(liso2);
+
+	var liso3 = lisosoma();
+	liso3 = R([0,1])(PI/2)(liso3);
+	liso3 = T([0,1])([-3,-7])(liso3);
 
 
-	var model = STRUCT([liso1]);
+	var liso4 = lisosoma();
+	liso4 = R([0,1])(PI/3)(liso4);
+	liso4 = T([0,1])([15,-1.5])(liso4);
+
+
+	var model = STRUCT([liso1,liso2,liso3,liso4]);
+	return model;
+}
+
+var ribosoma = function(){
+
+	var r = 0.1;
+	var n = 20;
+
+	var sphereDomain = DOMAIN([[0,PI],[0,2*PI]])([n,n]);
+	var sphere = MAP(function(p){
+		var u = p[0]-PI/2;
+		var v = p[1]-PI;
+		return [r*Math.cos(u)*Math.sin(v),r*Math.cos(u)*Math.cos(v),r*Math.sin(u)];
+	})(sphereDomain);
+
+	var ribosoma = COLOR([0,0,0])(sphere);
+	return ribosoma;
+
+}
+
+var ribosomi = function(){
+
+	var ribo1 = ribosoma();
+	ribo1 = T([0,2])([-2.5,8.5])(ribo1);
+
+	var ribo2 = ribosoma();
+	ribo2 = T([0,2])([-7.5,6.5])(ribo2);
+
+	var ribo3 = ribosoma();
+	ribo3 = T([0,2])([-5.5,4.5])(ribo3);
+
+	var ribo4 = ribosoma();
+	ribo4 = T([0,2])([2.5,6.5])(ribo4);
+
+	var ribo5 = ribosoma();
+	ribo5 = T([0,1])([-7.5,-2])(ribo5);
+
+	var ribo6 = ribosoma();
+	ribo6 = T([0,1])([14,2])(ribo6);
+
+	var ribo7 = ribosoma();
+	ribo7 = T([0,1])([14.5,-1])(ribo7);
+
+
+	var model = STRUCT([ribo1,ribo2,ribo3,ribo4,ribo5,ribo6,ribo7]);
+	return model;
 }
 
 
@@ -720,7 +779,9 @@ var golgi = complessoGolgi();
 var mitocondri = mitocondri();
 var dendriti = dendriti();
 var lisosomi = lisosomi();
-var neurone = STRUCT([nucleo,cellula,nucleolo,dendriti,golgi,mitocondri,lisosomi]);
+var ribosomi = ribosomi();
+
+var neurone = STRUCT([nucleo,cellula,nucleolo,dendriti,golgi,mitocondri,lisosomi,ribosomi]);
 
 
 
