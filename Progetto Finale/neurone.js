@@ -771,6 +771,71 @@ var ribosomi = function(){
 	return model;
 }
 
+var reticoloLiscio = function(){
+	var quotes = [[0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5],[0.5,-0.5,0.5],[0.5]];
+	var reticolo = SIMPLEX_GRID(quotes);
+	reticolo = R([0,1])(PI/6)(reticolo);
+	reticolo = T([1,2])([-9.5,-0.25])(reticolo);
+	
+
+	quotes = [[0.5],[0.5],[0.5]];
+	var cubo1 = SIMPLEX_GRID(quotes);
+	cubo1 = T([1,2])([-7,-0.25])(cubo1);
+
+	var cubo2 = SIMPLEX_GRID(quotes);
+	cubo2 = T([0,1,2])([-2,-8,-0.25])(cubo2);
+
+	var cubo3 = SIMPLEX_GRID(quotes);
+	cubo3 = T([0,1,2])([-1.5,-9.5,-0.25])(cubo3);
+
+	var model = STRUCT([cubo1,reticolo,cubo2,cubo3]);
+	model = COLOR([0,34/255,102/255])(model);
+	return model;
+}
+
+var reticoloRuvido = function(){
+
+//da fare
+	var c1 = H([[0,0,5.5],[5.5,0,0],[5.5*1.6568,0,0],[0,0,-5.5*1.6568]]);
+	var c2 = H([[0,0,6],[6,0,0],[6*1.6568,0,0],[0,0,-6*1.6568]]);
+	var c3 = H([[0,0.5,5.5],[5.5,0.5,0],[5.5*1.6568,0,0],[0,0,-5.5*1.6568]]);
+	var c4 = H([[0,0.5,6],[6,0.5,0],[6*1.6568,0,0],[0,0,-6*1.6568]]);
+
+
+	var c = [71/255,60/255,139/255];
+
+	var d1 = COLOR(c)(MAP(BEZIER(S1)([c1,c2]))(dd));
+	var d2 = COLOR(c)(MAP(BEZIER(S1)([c3,c4]))(dd));
+	var d3 = COLOR(c)(MAP(BEZIER(S1)([c1,c3]))(dd));
+	var d4 = COLOR(c)(MAP(BEZIER(S1)([c2,c4]))(dd));
+
+	var reticolodx = STRUCT([d1,d2,d3,d4]);
+	reticolodx = T([0,1,2])([0.25,-0.25,0.25])(reticolodx);
+
+
+	var c5 = H([[0,0,5.5],[-5.5,0,0],[-5.5*1.6568,0,0],[0,0,-5.5*1.6568]]);
+	var c6 = H([[0,0,6],[-6,0,0],[-6*1.6568,0,0],[0,0,-6*1.6568]]);
+	var c7 = H([[0,0.5,5.5],[-5.5,0.5,0],[-5.5*1.6568,0,0],[0,0,-5.5*1.6568]]);
+	var c8 = H([[0,0.5,6],[-6,0.5,0],[-6*1.6568,0,0],[0,0,-6*1.6568]]);
+
+
+	
+
+	var d5 = COLOR(c)(MAP(BEZIER(S1)([c5,c6]))(dd));
+	var d6 = COLOR(c)(MAP(BEZIER(S1)([c7,c8]))(dd));
+	var d7 = COLOR(c)(MAP(BEZIER(S1)([c5,c7]))(dd));
+	var d8 = COLOR(c)(MAP(BEZIER(S1)([c6,c8]))(dd));
+
+	var reticolosx = STRUCT([d5,d6,d7,d8]);
+	reticolosx = T([0,1,2])([-0.25,-0.25,0.25])(reticolosx);
+
+	var reticolosx1 = R([1,2])(PI/2)(reticolosx);
+	var reticolodx1 = R([1,2])(PI/2)(reticolodx);
+
+	var model = STRUCT([reticolodx,reticolosx,reticolosx1,reticolodx1]);
+	return (model);
+
+}
 
 var nucleo = nucleo();
 var nucleolo = nucleolo();
@@ -780,8 +845,10 @@ var mitocondri = mitocondri();
 var dendriti = dendriti();
 var lisosomi = lisosomi();
 var ribosomi = ribosomi();
+var reticololiscio = reticoloLiscio();
+var reticoloruvido = reticoloRuvido();
 
-var neurone = STRUCT([nucleo,cellula,nucleolo,dendriti,golgi,mitocondri,lisosomi,ribosomi]);
+var neurone = STRUCT([nucleo,cellula,nucleolo,dendriti,golgi,mitocondri,lisosomi,ribosomi,reticololiscio,reticoloruvido]);
 
 
 
