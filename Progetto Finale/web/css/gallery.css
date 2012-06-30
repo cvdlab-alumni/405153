@@ -34,12 +34,26 @@
 	list-style: none;
 	margin: 0;
 	padding: 0 0 0 5px;
+	
+	
+	
 }
+
 
 #gallery ul.thumbnails li
 {
 	float: left;
 	margin: 0 8px 1em 0;
+	opacity:0.4;
+	
+}
+
+#gallery ul.thumbnails li:hover
+{
+	float: left;
+	margin: 0 8px 1em 0;
+	opacity:1.0;
+	
 }
 
 #gallery ul.thumbnails li img .last 
@@ -47,17 +61,23 @@
 	margin-right: 0px;
 }
 
+
+
 #gallery ul.thumbnails li img
 {
 	width: 137px;
 	height: 85px;
 	border: solid 5px #323435;
 	cursor: pointer;
+	opacity:1.0;
+	
 }
+
 
 #gallery ul.thumbnails li img.active
 {
 	border: solid 5px #262728;
+	
 }
 
 .transparent {
