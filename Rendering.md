@@ -3,7 +3,7 @@
 
 - - -
 
->### Introduction
+>##Introduction
 > 
 > >The purpose of this subproject was to animate objects 3d chosen by the user in the previous  
 > >initialization phase.
@@ -18,7 +18,7 @@
 - - -
 
 
-> ### `How it works:`
+> ##How it works:
 > >In the initialization Phase, every 3d object as well as every animation is taken and put
 > >inside a structure (an array) together with cameras and user defined meshes.
 > >For each camera we put in the array, a button is created in the UI to give the possibility
@@ -101,7 +101,7 @@
 - - -
 > 
 > 
->### Functions and features:
+>##Functions and features:
 > > Tween gives the possibility just to start and pause the animation.
 > > We developed the following features :
 > >
