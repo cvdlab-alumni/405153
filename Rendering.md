@@ -78,7 +78,7 @@
 > >recreated. This happens also in case of start from a specific second with the added step 
 > > of calculating and adding to the starting state the effects preceding the starting time .
 >
->	function stop(){
+>	      function stop(){
 >			for(var i in tweens){
 >
 >					tweens[i].stop();		
