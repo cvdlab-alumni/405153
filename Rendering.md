@@ -14,14 +14,25 @@
 > >The second one deals with animation: It is possible to define a tween, a transition, assigning 
 > >a starting time, duration, and the action to be performed in that particular time. 
 
-
+- - - 
 > ### `How it works:`
 > >In the initialization Phase, every 3d object as well as every animation is taken and put
 > >inside a structure (an array) together with cameras and user defined meshes.
 > >For each camera we put in the array, a button is created in the UI to give the possibility
 > > to the user to exchange them at execution time.
 > >Objects initial state (position, rotation, scale) is saved.
-> >For each animation a new Tween object is created with his parameters (starting time, action,
+>
+>		function setupScene(){
+>		    init(800, 600); // THREE.js initialization
+>			saveOriginalState(); // original state is saved
+>			createTweensFromTransitions(); // tweens are created
+>		    meshesStartingState(); // meshes are set starting state
+>		    animate();
+>
+>		}
+
+
+> For each animation a new Tween object is created with his parameters (starting time, action,
 > >etc...)
 > >
 > >In the rendering script there's a main loop that calls the function "RequestAnimationFrame".
@@ -47,12 +58,40 @@
 >	    }
 >
 > >In this way objects are shown in their original/starting state ready to be animated.
+>
+>		function play(){
+>			playFrom(); // calculate the scene at the selected start time 
+>			
+>			if(!isanimating || ispaused){
+>				for(var i in tweens){
+>
+>					tweens[i].start();	
+>						
+>				}
+>				isanimating = true;
+>			}		
+>		}
+>
 > > When Play button is pushed, tweens are started so meshes are rotated or scaled or moved from
 > >their original position. 
 > >If the animation is stopped or restarted, the original state is restore and every tween is 
 > >recreated. This happens also in case of start from a specific second with the added step 
 > > of calculating and adding to the starting state the effects preceding the starting time .
+>
+>	function stop(){
+>			for(var i in tweens){
+>
+>					tweens[i].stop();		
+>			}	
+>			TWEEN.removeAll(); //old tweens are removed
+>			restoreTransitions(); //tween are recreated
+>			meshesStartingState();	// meshes are set in the original starting state
+>			tweens = [];
+>			startTime = 0; // set start time
+>		}
 
+
+- - -
 > 
 > 
 >### `Functions and features:`
@@ -90,7 +129,7 @@
 > > #####SWITCHING BETWEEN CAMERAS
 > > > during the animation, cameras can be switched.
 > >
-
+- - -
 
 
 
