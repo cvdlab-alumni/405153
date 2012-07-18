@@ -47,6 +47,12 @@
 >	    }
 >
 > >In this way objects are shown in their original/starting state ready to be animated.
+> > When Play button is pushed, tweens are started so meshes are rotated or scaled or moved from
+> >their original position. 
+> >If the animation is stopped or restarted, the original state is restore and every tween is 
+> >recreated. This happens also in case of start from a specific second with the added step 
+> > of calculating and adding to the starting state the effects preceding the starting time .
+
 > 
 > 
 >### `Functions and features:`
@@ -84,6 +90,10 @@
 > > #####SWITCHING BETWEEN CAMERAS
 > > > during the animation, cameras can be switched.
 > >
+
+
+
+
 
 
 
