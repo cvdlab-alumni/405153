@@ -53,26 +53,35 @@
 > > Tween gives the possibility just to start and pause the animation.
 > > We developed the following features :
 > >
-> > ######PLAY
+> > #####PLAY
 > > >granted by TWEEN.js
-> > #######STOP
+> 
+> > ######STOP
 > > >to stop the animation we pause it, we load meshes in the starting state (previously 
 > > >saved), and restore tweens.
-> > #######PAUSE
+> 
+> > #####PAUSE
 > > > granted by TWEEN.js
-> > #######FAST FORWARD
-> > > set the start time === end time and calculate the scene composition at that certain time
-> > ######REWIND
+> 
+> > #####FAST FORWARD
+> > > set the start time === end time and calculate the scene composition at that certain time.
+> 
+> > #####REWIND
 > > > like STOP
-> > #######CAMERAS ANIMATION
+> 
+> > #####CAMERAS ANIMATION
 > > > cameras are treated as animated objects so they can be rotated, scaled and moved.
-> > ######START FROM SECOND
+> 
+> > #####START FROM SECOND
 > > > depending on the starting time, a new starting state is calculated.
 > > > Playing the animation it will start tweens from that specific state.
-> > #######START FROM FRAME
+> 
+> > #####START FROM FRAME
 > > > like Start from second, but with frames
-> > #######LOOK AT CENTER
-> > ######SWITCHING BETWEEN CAMERAS
+> 
+> > #####LOOK AT CENTER
+> 
+> > #####SWITCHING BETWEEN CAMERAS
 > > > during the animation, cameras can be switched.
 > >
 
