@@ -15,6 +15,9 @@
 > >a starting time, duration, and the action to be performed in that particular time. 
 
 - - - 
+- - -
+
+
 > ### `How it works:`
 > >In the initialization Phase, every 3d object as well as every animation is taken and put
 > >inside a structure (an array) together with cameras and user defined meshes.
@@ -56,6 +59,7 @@
 >	        renderer.render( scene, camera );
 >
 >	    }
+>	    
 >
 > >In this way objects are shown in their original/starting state ready to be animated.
 >
@@ -71,12 +75,14 @@
 >				isanimating = true;
 >			}		
 >		}
+>		
 >
 > > When Play button is pushed, tweens are started so meshes are rotated or scaled or moved from
 > >their original position. 
 > >If the animation is stopped or restarted, the original state is restore and every tween is 
 > >recreated. This happens also in case of start from a specific second with the added step 
 > > of calculating and adding to the starting state the effects preceding the starting time .
+> 
 >
 >	      function stop(){
 >			for(var i in tweens){
@@ -91,6 +97,7 @@
 >		}
 
 
+- - -
 - - -
 > 
 > 
@@ -130,6 +137,8 @@
 > > > during the animation, cameras can be switched.
 > >
 - - -
+- - -
+
 
 
 
