@@ -32,18 +32,18 @@
 
 #####JsCode
 
-	    function animate() {
-
-	        requestAnimationFrame( animate );
-	        render();
-	    }
-
-	    function render() {
-
-	        renderer.render( scene, camera );
-
-	    }
-
+>	    function animate() {
+>
+>	        requestAnimationFrame( animate );
+>	        render();
+>	    }
+>
+>	    function render() {
+>
+>	        renderer.render( scene, camera );
+>
+>	    }
+>
 >In this way objects are shown in their original/starting state ready to be animated.
 
 
