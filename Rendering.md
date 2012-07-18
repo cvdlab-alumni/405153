@@ -3,7 +3,7 @@
 
 - - -
 
->### `Introduction`
+>### Introduction
 > 
 > >The purpose of this subproject was to animate objects 3d chosen by the user in the previous  
 > >initialization phase.
@@ -101,7 +101,7 @@
 - - -
 > 
 > 
->### `Functions and features:`
+>### Functions and features:
 > > Tween gives the possibility just to start and pause the animation.
 > > We developed the following features :
 > >
